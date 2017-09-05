@@ -51,7 +51,7 @@ angular.module('systemMonitoring', ['ui.router', 'ngAnimate', 'devices'])
        $scope.sidebarItems = [
            { title: "Map", route: "map", icon: 'icon-location', active: false },
         //   { title: 'Users', route: 'users', icon: 'icon-user', active: false},
-           { title: "Vehicle", route: "vehicle", icon: 'icon-car', active: false },
+           { title: "Users", route: "vehicle", icon: 'icon-car', active: false },
            { title: "Settings", route: "settings", icon: 'icon-manage', active: false }
        ];
 
