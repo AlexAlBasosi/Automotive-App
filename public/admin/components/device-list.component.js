@@ -20,23 +20,6 @@
 			$scope.monitorMode = angular.mode === "monitoring";
 			$scope.selection = {};
 
-			//dynamically load a web page (test)
-			app.directive('addHtml', function($compile){
-		  return {
-		    restrict: 'AE',
-		    link: function(scope, element, attrs){
-		      var html = `<div class='h1' data-ng-h1 draggable>Test</div>`,
-		      compiledElement = $compile(html)(scope);
-
-		      element.on('click', function(event){
-		        var pageElement = angular.element(document.getElementById("page"));
-		        pageElement.empty()
-		        pageElement.append(compiledElement);
-		      })
-		    }
-		  }
-		});
-
 
 			// http request template
 			function httpRequest(request, message, callback, errback) {
@@ -185,3 +168,20 @@
 	var scriptUrl = scripts[scripts.length - 1].src;
 	return scriptUrl.substring(0, scriptUrl.lastIndexOf('/') + 1);
 })());
+
+//dynamically load a web page (test)
+app.directive('addHtml', function($compile){
+return {
+	restrict: 'AE',
+	link: function(scope, element, attrs){
+		var html = `<div class='h1' data-ng-h1 draggable>Test</div>`,
+		compiledElement = $compile(html)(scope);
+
+		element.on('click', function(event){
+			var pageElement = angular.element(document.getElementById("page"));
+			pageElement.empty()
+			pageElement.append(compiledElement);
+		})
+	}
+}
+});
