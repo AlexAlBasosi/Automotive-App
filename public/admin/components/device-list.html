@@ -13,7 +13,7 @@
 				<th class="centeringCell" ng-show="!monitorMode"><input type="checkbox" name="selectall" ng-disabled="requestSending||noContents" ng-model="selectall" ng-click="onselectAll(selectall)"></th>
 				<th>Photo</th>
 				<th class="sortable" ng-click="orderBy='deviceDetails.name';ascendings[orderBy]=!ascendings[orderBy]">
-					<span>Name</span>
+					<span>potatoName</span>
 					<span ng-show="orderBy=='deviceDetails.name'" ng-class="ascendings[orderBy]?'ascending':'descending'"><img src="" alt=""></span>
 				</th>
 				<th class="sortable" ng-click="orderBy='deviceId';ascendings[orderBy]=!ascendings[orderBy]" ng-show="!monitorMode">
