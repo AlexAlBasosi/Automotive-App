@@ -48,6 +48,10 @@
 					<span>Status</span>
 					<span ng-show="orderBy=='connected.status'" ng-class="ascendings[orderBy]?'ascending':'descending'"><img src="" alt=""></span>
 				</th>
+				<th class="sortable" ng-click="orderBy='connected.status';ascendings[orderBy]=!ascendings[orderBy]">
+					<span>Drives</span>
+					<span ng-show="orderBy=='connected.status'" ng-class="ascendings[orderBy]?'ascending':'descending'"><img src="" alt=""></span>
+				</th>
 			</tr>
 		</thead>
 		<tbody id="tbody">
