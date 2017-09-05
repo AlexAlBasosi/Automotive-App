@@ -45,7 +45,7 @@ VCAP_SERVICES = JSON.parse(process.env.VCAP_SERVICES || '{}')
  */
 // true not to use simulated car devices
 //DISABLE_DEMO_CAR_DEVICES = process.env.DISABLE_DEMO_CAR_DEVICES // _app.js
-// false to skip MCA authentication and act as "demo user" 
+// false to skip MCA authentication and act as "demo user"
 //MCA_AUTHENTICATION = process.env.MCA_AUTHENTICATION // routes/user/auth.js
 
 
@@ -134,7 +134,7 @@ app.use(function(req, res, next){
 //		console.error('accepted due to no referrer');
 		return next();
 	}
-	
+
 	referrer = referrer.toLowerCase();
 	for(var i=0; i<appEnv.urls.length; i++){
 		var url = appEnv.urls[i].toLowerCase();
@@ -142,7 +142,7 @@ app.use(function(req, res, next){
 //			console.error('accepted as the server name matched');
 			return next(); // accept
 	}
-	
+
 	if(req.method === 'GET' && req.path){
 		// allow link to the top page
 		if(req.path === '/') return next();
@@ -150,7 +150,7 @@ app.use(function(req, res, next){
 		// allow direct link to images, esp. QR code
 		if(req.path.startsWith('/admin/qr/')) return next();
 	}
-	
+
 	//reject
 	console.error('Rejected request as the referrer [%s] does not match to any server URLs.', referrer);
 	res.status(403).send('Unauthorized');
@@ -165,7 +165,7 @@ app.use(function(req, res, next){
 //add routes
 app.use('/',           require('./routes/indexRouter.js'));
 app.use('/admin',      require('./routes/admin'));
-app.use('/user',       require('./routes/user'));
+//app.use('/user',       require('./routes/user'));
 app.use('/apps',       require('./routes/customIdentityProviderRouter.js'));
 app.use('/monitoring', require('./routes/monitoring'));
 app.use('/api',        require('./devicesSimulationEngine/api.js'));
@@ -244,7 +244,7 @@ function onListening() {
 	var addr = app.server.address();
 	var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
 	console.log('Server listening on ' + bind);
-	
+
 	// start DEMO-related activities
 	require("./_app.js");
 }

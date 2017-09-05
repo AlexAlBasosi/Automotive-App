@@ -11,13 +11,13 @@ angular.module('systemMonitoring', ['ui.router', 'ngAnimate', 'devices'])
 
     /* === APP CONFIG === */
     .config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
-      
+
       $stateProvider
-      .state('users', {
+    /*  .state('users', {
         url: '/users',
         templateUrl: 'partials/users/users.html',
         controller:  'usersCtrl'
-      })
+      })*/
       .state('map', {
         url: '/map',
         templateUrl: 'partials/map/map.html',
@@ -34,7 +34,7 @@ angular.module('systemMonitoring', ['ui.router', 'ngAnimate', 'devices'])
         controller:  'settingsCtrl'
       })
       $urlRouterProvider.otherwise('/map');
-      
+
     }])
 
     .run(['$rootScope', '$state', function($rootScope, $state) {
@@ -45,30 +45,30 @@ angular.module('systemMonitoring', ['ui.router', 'ngAnimate', 'devices'])
           }
         });
     }])
-    
+
     /* === GENERAL CONTROLLERS === */
     .controller('sidebar', ['$scope', '$state', function($scope, $state) {
        $scope.sidebarItems = [
            { title: "Map", route: "map", icon: 'icon-location', active: false },
-           { title: 'Users', route: 'users', icon: 'icon-user', active: false},
+        //   { title: 'Users', route: 'users', icon: 'icon-user', active: false},
            { title: "Vehicle", route: "vehicle", icon: 'icon-car', active: false },
            { title: "Settings", route: "settings", icon: 'icon-manage', active: false }
        ];
-       
-       $scope.isActive = function() {  
+
+       $scope.isActive = function() {
            return $state.includes('overview');
        }
     }])
-    
+
     .controller('mapCtrl', ['$rootScope', '$scope', function($rootScope, $scope) {
         var self = this;
         $scope.onChangeMapExtent = function(extent){
             $rootScope.mapLastSelectedArea = {id:'_last_selected', name: 'Last Selected', extent: extent};
             $scope.selectedRegion = {id: 'user_'+new Date(), name: 'User Defined', extent: extent};
         };
-        
+
         //
-        // Area is for focusing on a small region. 
+        // Area is for focusing on a small region.
         // - to set location, `center` (and `zoom`) or `extent` property
         //   - the default zoom value is 15
         //
@@ -117,7 +117,7 @@ angular.module('systemMonitoring', ['ui.router', 'ngAnimate', 'devices'])
         }else{
             $scope.selectedArea = $scope.areas[0];
         }
-        
+
         //
         // Region is wider than area, e.g. to track the number of cars
         //
@@ -130,10 +130,10 @@ angular.module('systemMonitoring', ['ui.router', 'ngAnimate', 'devices'])
         // make initial selection
         $scope.selectedRegion = $scope.regions[0];
     }])
-    
-    .controller('usersCtrl', ['$scope', function($scope, $state) {
+
+  /*  .controller('usersCtrl', ['$scope', function($scope, $state) {
         // empry
-    }])
+    }])*/
 
     .controller('vehicleCtrl', ['$scope', function($scope, $state) {
         // empty

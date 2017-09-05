@@ -23,9 +23,9 @@ applications:
       - DriverBehavior
       - WeatherInsights
     disk_quota: 1024M
-#    host: iot-automotive-starter
-    name: IoT-Automotive-Starter
-    path: .
+    host: iot-automotive-starter-alex
+    name: IoT-Automotive-Starter-alex
+    path: . 
     instances: 1
     memory: 640M
     iotWbManagedServices:
