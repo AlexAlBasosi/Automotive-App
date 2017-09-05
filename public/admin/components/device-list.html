@@ -13,7 +13,7 @@
 				<th class="centeringCell" ng-show="!monitorMode"><input type="checkbox" name="selectall" ng-disabled="requestSending||noContents" ng-model="selectall" ng-click="onselectAll(selectall)"></th>
 				<th>Photo</th>
 				<th class="sortable" ng-click="orderBy='deviceDetails.name';ascendings[orderBy]=!ascendings[orderBy]">
-					<span>potatoName</span>
+					<span>Name</span>
 					<span ng-show="orderBy=='deviceDetails.name'" ng-class="ascendings[orderBy]?'ascending':'descending'"><img src="" alt=""></span>
 				</th>
 				<th class="sortable" ng-click="orderBy='deviceId';ascendings[orderBy]=!ascendings[orderBy]" ng-show="!monitorMode">
@@ -31,22 +31,6 @@
 				<th class="sortable" ng-click="orderBy='registrationDate';ascendings[orderBy]=!ascendings[orderBy]">
 					<span>Registration Date</div>
 					<span ng-show="orderBy=='registrationDate'" ng-class="ascendings[orderBy]?'ascending':'descending'"><img src="" alt=""></span>
-				</th>
-				<th class="sortable" ng-click="orderBy='connected.lat';ascendings[orderBy]=!ascendings[orderBy]">
-					<span>Latitude</span>
-					<span ng-show="orderBy=='connected.lat'" ng-class="ascendings[orderBy]?'ascending':'descending'"><img src="" alt=""></span>
-				</th>
-				<th class="sortable" ng-click="orderBy='connected.lng';ascendings[orderBy]=!ascendings[orderBy]">
-					<span>Longitude</span>
-					<span ng-show="orderBy=='connected.lng'" ng-class="ascendings[orderBy]?'ascending':'descending'"><img src="" alt=""></span>
-				</th>
-				<th class="sortable" ng-click="orderBy='connected.lastUpdatedate';ascendings[orderBy]=!ascendings[orderBy]">
-					<span>Last Event Date</span>
-					<span ng-show="orderBy=='connected.lastUpdatedate'" ng-class="ascendings[orderBy]?'ascending':'descending'"><img src="" alt=""></span>
-				</th>
-				<th class="sortable" ng-click="orderBy='connected.status';ascendings[orderBy]=!ascendings[orderBy]">
-					<span>Status</span>
-					<span ng-show="orderBy=='connected.status'" ng-class="ascendings[orderBy]?'ascending':'descending'"><img src="" alt=""></span>
 				</th>
 				<th class="sortable" ng-click="orderBy='connected.status';ascendings[orderBy]=!ascendings[orderBy]">
 					<span>Drives</span>
