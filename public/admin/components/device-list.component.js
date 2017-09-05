@@ -19,7 +19,25 @@
 
 			$scope.monitorMode = angular.mode === "monitoring";
 			$scope.selection = {};
-			
+
+			//dynamically load a web page (test)
+			app.directive('addHtml', function($compile){
+		  return {
+		    restrict: 'AE',
+		    link: function(scope, element, attrs){
+		      var html = `<div class='h1' data-ng-h1 draggable>Test</div>`,
+		      compiledElement = $compile(html)(scope);
+
+		      element.on('click', function(event){
+		        var pageElement = angular.element(document.getElementById("page"));
+		        pageElement.empty()
+		        pageElement.append(compiledElement);
+		      })
+		    }
+		  }
+		});
+
+
 			// http request template
 			function httpRequest(request, message, callback, errback) {
 				$scope.deletedisable = true;
@@ -53,7 +71,7 @@
 					errback && errback(error, status);
 				});
 			};
-			
+
 			// load contents
 			function loadContents() {
 				// reset data before loading
@@ -68,7 +86,7 @@
 					$scope.noContents = !data || data.length == 0;
 				});
 			};
-			
+
 			// delete selected devices
 			function deleteSelected() {
 				var devices = [];
@@ -105,12 +123,12 @@
 				});
 			}
 
-			// check or uncheck all checkboxes 
+			// check or uncheck all checkboxes
 			$scope.onselectAll = function(checked) {
 				$scope.deletedisable = !checked;
 				if (checked) {
-					$scope.alldevices.forEach(function(d) { 
-						$scope.selection[d.deviceId] = true; 
+					$scope.alldevices.forEach(function(d) {
+						$scope.selection[d.deviceId] = true;
 					});
 				} else {
 					$scope.selection = {};
@@ -132,7 +150,7 @@
 					$scope.deletedisable = true;
 				}
 			};
-			
+
 			// reload button handler
 			$scope.onreload = function() {
 				loadContents();
@@ -142,7 +160,7 @@
 			$scope.oncreate = function() {
 				window.location.href = "/admin/ui/device/form";
 			};
-			
+
 			// delete button handler
 			$scope.ondeleteSelected = function() {
 				deleteSelected();
