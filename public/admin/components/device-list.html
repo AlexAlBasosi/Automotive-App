@@ -48,9 +48,9 @@
 				<td ng-show="!monitorMode">{{device.typeId}}</td>
 				<td ng-show="monitorMode" ng-model="device._simulated=device.typeId=='ConnectedCarDevice'">{{device._simulated}}</td>
 				<td>{{device.registrationDate|dateFormat}}</td>
-				<td
-					<form action="/views/index.html">
-						<input type="submit" value="View Trips" />
+				<td>
+					<form action="../../../admin/views/index.html">
+						<input type="submit" value="View Drives" />
 					</form>
 				</td>
 			</tr>
