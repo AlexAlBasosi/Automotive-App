@@ -4,7 +4,16 @@
 </head>
 
 <body>
-  <div ng-include="'../../../views/trips.ejs'"></div>
+  <div ng-app="trips" ng-controller="tripsCtrl">
+    <div ng-include="'../../../views/trips.ejs'"></div>
+  </div>
+
+  <script>
+    var app = angular.module('trips', []);
+    app.controller('tripsCtrl', function($scope, $http){
+
+    });
+  </script>
 </body>
 
 </html>
