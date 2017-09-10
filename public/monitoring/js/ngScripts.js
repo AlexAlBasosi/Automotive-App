@@ -33,10 +33,14 @@ angular.module('systemMonitoring', ['ui.router', 'ngAnimate', 'devices'])
         templateUrl: 'partials/settings/settings.html',
         controller:  'settingsCtrl'
       })
+      .state('trips', {
+        url: '/trips',
+        templateUrl: '../../../../views/trips.ejs',
+        controller: 'tripsCtrl'
+      })
       $urlRouterProvider.otherwise('/map');
 
     }])
-
     .run(['$rootScope', '$state', function($rootScope, $state) {
         $rootScope.$on('$stateChangeStart', function(evt, to, params) {
           if (to.redirectTo) {
@@ -138,4 +142,8 @@ angular.module('systemMonitoring', ['ui.router', 'ngAnimate', 'devices'])
     .controller('vehicleCtrl', ['$scope', function($scope, $state) {
         // empty
     }])
+
+    .controller('tripsCtrl', ['$scope', function($scope, $state)
+        //empty
+    ])
 ;
